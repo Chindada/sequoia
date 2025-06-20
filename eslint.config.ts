@@ -1,34 +1,75 @@
-import { globalIgnores } from 'eslint/config'
-import { defineConfigWithVueTs, vueTsConfigs } from '@vue/eslint-config-typescript'
-import pluginVue from 'eslint-plugin-vue'
-import pluginVitest from '@vitest/eslint-plugin'
-import pluginPlaywright from 'eslint-plugin-playwright'
-import skipFormatting from '@vue/eslint-config-prettier/skip-formatting'
+import pluginVitest from "@vitest/eslint-plugin";
+import skipFormatting from "@vue/eslint-config-prettier/skip-formatting";
+import {
+  configureVueProject,
+  defineConfigWithVueTs,
+  vueTsConfigs
+} from "@vue/eslint-config-typescript";
+import pluginPlaywright from "eslint-plugin-playwright";
+import pluginVue from "eslint-plugin-vue";
+import { globalIgnores } from "eslint/config";
+import typescriptEslint from "typescript-eslint";
 
-// To allow more languages other than `ts` in `.vue` files, uncomment the following lines:
-// import { configureVueProject } from '@vue/eslint-config-typescript'
-// configureVueProject({ scriptLangs: ['ts', 'tsx'] })
-// More info at https://github.com/vuejs/eslint-config-typescript/#advanced-setup
+configureVueProject({ scriptLangs: ["ts", "tsx"] });
 
 export default defineConfigWithVueTs(
   {
-    name: 'app/files-to-lint',
-    files: ['**/*.{ts,mts,tsx,vue}'],
+    name: "app",
+    files: ["**/*.{ts,mts,tsx,vue}"]
   },
-
-  globalIgnores(['**/dist/**', '**/dist-ssr/**', '**/coverage/**']),
-
-  pluginVue.configs['flat/essential'],
+  globalIgnores(["**/dist/**", "**/dist-ssr/**", "**/coverage/**", "**/dist-electron/**"]),
+  pluginVue.configs["flat/recommended"],
   vueTsConfigs.recommended,
-  
+  {
+    rules: {
+      "no-console": "error",
+      "no-unused-vars": "error",
+      "@typescript-eslint/no-unused-expressions": "error"
+    },
+    languageOptions: {
+      parserOptions: {
+        parser: typescriptEslint.parser
+      }
+    }
+  },
+  {
+    files: ["src/pages/**/*.vue"],
+    rules: {
+      "vue/multi-word-component-names": "off"
+    }
+  },
+  {
+    files: ["src/**/*.vue"],
+    rules: {
+      "vue/multi-word-component-names": "off",
+      "vue/attributes-order": [
+        "warn",
+        {
+          order: [
+            "DEFINITION",
+            "LIST_RENDERING",
+            "CONDITIONALS",
+            "RENDER_MODIFIERS",
+            "GLOBAL",
+            ["UNIQUE", "SLOT"],
+            "TWO_WAY_BINDING",
+            "OTHER_DIRECTIVES",
+            "OTHER_ATTR",
+            "EVENTS",
+            "CONTENT"
+          ],
+          alphabetical: true
+        }
+      ]
+    }
+  },
   {
     ...pluginVitest.configs.recommended,
-    files: ['src/**/__tests__/*'],
+    files: ["src/**/__tests__/*"]
   },
-  
   {
-    ...pluginPlaywright.configs['flat/recommended'],
-    files: ['e2e/**/*.{test,spec}.{js,ts,jsx,tsx}'],
+    ...pluginPlaywright.configs["flat/recommended"],
+    files: ["e2e/**/*.{test,spec}.{js,ts,jsx,tsx}"]
   },
-  skipFormatting,
-)
+  skipFormatting
+);
