@@ -16,7 +16,7 @@
     "code": "run-s lint format"
   },
   "dependencies": {
-    "@chindada/panther": "github:chindada/panther#main",
+    "@chindada/panther": "github:chindada/panther#v1.0",
     "@primeuix/themes": "^1.1.2",
     "@primevue/core": "^4.3.5",
     "@primevue/forms": "^4.3.5",

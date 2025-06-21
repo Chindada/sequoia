@@ -21,7 +21,7 @@ pnpm add @chindada/panther
 
 # or
 pnpm remove @chindada/panther
-pnpm add git+ssh://git@github.com:chindada/panther.git#main
+pnpm add git+ssh://git@github.com:chindada/panther.git#v1.0
 ```
 
 ```sh

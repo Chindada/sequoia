@@ -9,8 +9,8 @@ importers:
   .:
     dependencies:
       '@chindada/panther':
-        specifier: github:chindada/panther#main
-        version: https://codeload.github.com/chindada/panther/tar.gz/1593934f53942c28426545da9fd9bacce1043bba
+        specifier: github:chindada/panther#v1.0
+        version: https://codeload.github.com/chindada/panther/tar.gz/b36934ae899b865f13a933fd0c120309337434b7
       '@primeuix/themes':
         specifier: ^1.1.2
         version: 1.1.2
@@ -321,8 +321,8 @@ packages:
     resolution: {integrity: sha512-ETyHEk2VHHvl9b9jZP5IHPavHYk57EhanlRRuae9XCpb/j5bDCbPPMOBfCWhnl/7EDJz0jEMCi/RhccCE8r1+Q==}
     engines: {node: '>=6.9.0'}
 
-  '@chindada/panther@https://codeload.github.com/chindada/panther/tar.gz/1593934f53942c28426545da9fd9bacce1043bba':
-    resolution: {tarball: https://codeload.github.com/chindada/panther/tar.gz/1593934f53942c28426545da9fd9bacce1043bba}
+  '@chindada/panther@https://codeload.github.com/chindada/panther/tar.gz/b36934ae899b865f13a933fd0c120309337434b7':
+    resolution: {tarball: https://codeload.github.com/chindada/panther/tar.gz/b36934ae899b865f13a933fd0c120309337434b7}
     version: 0.0.0
 
   '@csstools/color-helpers@5.0.2':
@@ -3387,7 +3387,7 @@ snapshots:
       '@babel/helper-string-parser': 7.27.1
       '@babel/helper-validator-identifier': 7.27.1
 
-  '@chindada/panther@https://codeload.github.com/chindada/panther/tar.gz/1593934f53942c28426545da9fd9bacce1043bba':
+  '@chindada/panther@https://codeload.github.com/chindada/panther/tar.gz/b36934ae899b865f13a933fd0c120309337434b7':
     dependencies:
       '@protobuf-ts/runtime': 2.11.1
       '@protobuf-ts/runtime-rpc': 2.11.1
