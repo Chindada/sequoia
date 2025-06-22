@@ -1,13 +1,8 @@
-import { usePrimeVue } from "@primevue/core";
 import type { I18n, I18nOptions } from "vue-i18n";
 import { createI18n } from "vue-i18n";
 
-import { enLocale } from "@/locales/primevue/us";
-import { zhTWLocale } from "@/locales/primevue/zh_tw";
 import us from "@/locales/us.json";
 import zhTW from "@/locales/zh_tw.json";
-
-const primevue = usePrimeVue();
 
 type LocaleSchema = {
   name: string;
@@ -51,11 +46,6 @@ const setupI18n = (): I18n => {
     options.locale = locale;
   } else {
     localStorage.setItem("locale", supportLocales[0].name);
-  }
-  if (locale === localeName.localeNameZhTW) {
-    primevue.config.locale = zhTWLocale;
-  } else if (locale === localeName.localeNameEn) {
-    primevue.config.locale = enLocale;
   }
   const i18n = createI18n(options);
   return i18n;
