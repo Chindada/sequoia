@@ -1,14 +1,21 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 
 import { Login } from "@/apis/auth";
+
+const { t } = useI18n();
 
 const checked2 = ref(true);
 const router = useRouter();
 
 const username = ref("");
 const password = ref("");
+
+onMounted(() => {
+  document.title = `TBT Capitan - ${t("login")}`;
+});
 
 const login = async () => {
   if (username.value === "" || password.value === "") {

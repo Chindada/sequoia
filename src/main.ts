@@ -12,13 +12,17 @@ import { createApp } from "vue";
 
 import "@/assets/css/styles.scss";
 import "@/assets/css/tailwind.css";
+import { i18n } from "@/i18n";
 
 import App from "./App.vue";
+import useFirebase from "./firebase";
 import router from "./router";
 
 const app = createApp(App);
 
+// use pinia
 app.use(createPinia());
+
 // add primevue
 app.use(ToastService);
 app.use(DialogService);
@@ -48,10 +52,20 @@ app.use(PrimeVue, {
     }
   }
 });
+
 // add directive
 app.directive("ripple", Ripple);
 app.directive("tooltip", Tooltip);
 app.directive("styleclass", StyleClass);
+
+// add i18n
+app.use(i18n);
+
+// add router
 app.use(router);
 
+// import firebase
+useFirebase(app);
+
+// mount app
 app.mount("#app");

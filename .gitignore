@@ -33,3 +33,4 @@ test-results/
 playwright-report/
 
 components.d.ts
+.env

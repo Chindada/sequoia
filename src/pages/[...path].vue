@@ -1,7 +1,14 @@
 <script setup lang="ts">
+import { onMounted } from "vue";
+import { useI18n } from "vue-i18n";
 import { useRouter } from "vue-router";
 
 const router = useRouter();
+const { t } = useI18n();
+
+onMounted(async () => {
+  document.title = `MoldLink R7 - ${t("not_found")}`;
+});
 
 const goHome = () => {
   router.push({ path: "/" });

@@ -1,7 +1,14 @@
 <script setup lang="ts">
-import { ref } from "vue";
+import { onMounted, ref } from "vue";
+import { useI18n } from "vue-i18n";
 
 import { useLayout } from "@/components/layouts/composables/layout";
+
+const { t } = useI18n();
+
+onMounted(() => {
+  document.title = `TBT Capitan - ${t("home")}`;
+});
 
 const features = [
   "Arcu vitae elementum",
