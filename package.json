@@ -60,6 +60,7 @@
     "npm-run-all2": "^8.0.4",
     "prettier": "3.5.3",
     "prettier-plugin-tailwindcss": "^0.6.13",
+    "sass-embedded": "^1.89.2",
     "tailwindcss": "^4.1.10",
     "tailwindcss-primeui": "^0.6.1",
     "typescript": "~5.8.3",

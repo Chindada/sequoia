@@ -39,7 +39,7 @@ export default defineConfig({
     Tailwindcss(),
     MetaLayouts({
       target: "src/layouts",
-      defaultLayout: "SakaiLayout"
+      defaultLayout: "AppLayout"
     }),
     VueRouter({
       extendRoute(route) {
@@ -55,7 +55,7 @@ export default defineConfig({
       routeBlockLang: "json"
     }),
     Vue(),
-    VueDevTools(),
+    process.env.NODE_ENV === "production" ? VueDevTools() : null,
     Components({
       dts: true,
       resolvers: [PrimeVueResolver()]
