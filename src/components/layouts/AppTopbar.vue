@@ -41,7 +41,7 @@ const { toggleMenu, toggleDarkMode, isDarkTheme } = useLayout();
           </g>
         </svg>
 
-        <span>SAKAI</span>
+        <span>TBT Capitan</span>
       </router-link>
     </div>
 
