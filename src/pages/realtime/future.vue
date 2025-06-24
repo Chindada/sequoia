@@ -1,8 +1,7 @@
 <script setup lang="ts"></script>
 
 <template>
-  <RouterView></RouterView>
-  <CustomToast></CustomToast>
+  <div class="card">futures</div>
 </template>
 
 <style lang="scss" scoped></style>

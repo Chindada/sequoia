@@ -1,13 +1,16 @@
 <script setup lang="ts">
 import { ref } from "vue";
+import { useI18n } from "vue-i18n";
 
 import AppMenuItem from "./AppMenuItem.vue";
 import type { MenuItem } from "./composables/layout";
 
+const { t } = useI18n();
+
 const model = ref<MenuItem[]>([
   {
-    label: "Home",
-    items: [{ label: "Dashboard", icon: "pi pi-fw pi-home", to: "/" }]
+    label: t("realtime"),
+    items: [{ label: t("future"), icon: "pi pi-fw pi-home", to: "/realtime/future" }]
   }
 ]);
 </script>
