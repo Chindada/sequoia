@@ -55,7 +55,9 @@ const showCommit = ref(false);
 
 <template>
   <div class="grid grid-cols-12 gap-4">
-    <div class="col-span-12 lg:col-span-8 xl:col-span-8"></div>
+    <div class="col-span-12 lg:col-span-8 xl:col-span-8">
+      <HomeEvent />
+    </div>
     <div class="col-span-12 lg:col-span-4 xl:col-span-4">
       <div class="card flex-col shadow-xs select-none">
         <div class="text-surface-500 mb-4 block font-medium">
