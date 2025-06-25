@@ -1,24 +1,34 @@
+import { setupLayouts } from "virtual:meta-layouts";
 import { createRouter, createWebHistory } from "vue-router";
+import { handleHotUpdate, routes } from "vue-router/auto-routes";
 
-import HomeView from "../views/HomeView.vue";
+import { Refresh } from "@/apis/auth";
+import { GetAvaliableTimeInMinute } from "@/utils/jwt";
+
+declare module "vue-router" {
+  interface RouteMeta {
+    layout?: string;
+    auth: boolean;
+  }
+}
 
 const router = createRouter({
   history: createWebHistory(import.meta.env.BASE_URL),
-  routes: [
-    {
-      path: "/",
-      name: "home",
-      component: HomeView
-    },
-    {
-      path: "/about",
-      name: "about",
-      // route level code-splitting
-      // this generates a separate chunk (About.[hash].js) for this route
-      // which is lazy-loaded when the route is visited.
-      component: () => import("../views/AboutView.vue")
-    }
-  ]
+  routes: setupLayouts(routes)
 });
+
+router.beforeEach(async (to) => {
+  if (to.meta.auth && GetAvaliableTimeInMinute(localStorage.getItem("token")) < 15) {
+    try {
+      await Refresh();
+    } catch {
+      return "/login";
+    }
+  }
+});
+
+if (import.meta.hot) {
+  handleHotUpdate(router);
+}
 
 export default router;

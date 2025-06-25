@@ -62,18 +62,6 @@ git push -u origin --all
 find . -type f  | git check-ignore --stdin
 ```
 
-### Generate icons
-
-```sh
-pnpm electron-icon-maker --input=[abs]/mojave-web/src/assets/png/logo.png --output=./ds
-```
-
-### Electron build
-
-```sh
-pnpm build-ds && pnpm electron-builder build --mac --publish=never --config.buildVersion=private
-```
-
 ### Vue snippets
 
 ```vue
