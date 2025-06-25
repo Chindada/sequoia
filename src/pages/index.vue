@@ -1,12 +1,13 @@
 <script setup lang="ts">
-import type { APIResponse } from "@chindada/panther/typescript/system/api";
-import { SystemInfo } from "@chindada/panther/typescript/system/system";
 import { useToast } from "primevue/usetoast";
 import { onBeforeMount, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
 import { SystemAPI } from "@/apis/system/system";
 import { ToastOpt } from "@/utils/toast";
+
+import type { APIResponse } from "@chindada/panther/typescript/system/api";
+import { SystemInfo } from "@chindada/panther/typescript/system/system";
 
 const { t } = useI18n();
 const toast = useToast();

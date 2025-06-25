@@ -1,7 +1,8 @@
-import { APIResponse } from "@chindada/panther/typescript/system/api";
 import axios from "axios";
 
 import router from "@/router";
+
+import { APIResponse } from "@chindada/panther/typescript/system/api";
 
 const httpClient = axios.create({
   responseType: "arraybuffer",

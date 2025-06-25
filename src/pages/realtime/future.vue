@@ -1,9 +1,10 @@
 <script setup lang="ts">
-import { FutureBidAsk, FutureStream, FutureTick } from "@chindada/panther/typescript/stream/stream";
 import { onBeforeUnmount, onMounted, onUnmounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
 import path from "@/apis/path";
+
+import { FutureBidAsk, FutureStream, FutureTick } from "@chindada/panther/typescript/stream/stream";
 
 let socket: WebSocket | null = null;
 

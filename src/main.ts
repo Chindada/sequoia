@@ -1,3 +1,6 @@
+import { library } from "@fortawesome/fontawesome-svg-core";
+import { faChartLine, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { definePreset } from "@primeuix/themes";
 import Aura from "@primeuix/themes/aura";
 import { createPinia } from "pinia";
@@ -18,7 +21,12 @@ import App from "./App.vue";
 import useFirebase from "./firebase";
 import router from "./router";
 
+library.add(faUsers, faChartLine);
+
 const app = createApp(App);
+
+// add font awesome icon component
+app.component("FontAwesomeIcon", FontAwesomeIcon);
 
 // use pinia
 app.use(createPinia());

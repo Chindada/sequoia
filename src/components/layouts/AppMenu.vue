@@ -10,7 +10,17 @@ const { t } = useI18n();
 const model = ref<MenuItem[]>([
   {
     label: t("realtime"),
-    items: [{ label: t("future"), icon: "pi pi-fw pi-home", to: "/realtime/future" }]
+    items: [{ label: t("future"), icon: "fas fa-chart-line", to: "/realtime/future" }]
+  },
+  {
+    label: t("system"),
+    items: [
+      {
+        label: t("account_management"),
+        icon: "fas fa-users",
+        to: "/system/account"
+      }
+    ]
   }
 ]);
 </script>

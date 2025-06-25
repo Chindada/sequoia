@@ -7,7 +7,7 @@ const config = {
   tabWidth: 2,
   trailingComma: "none",
   useTabs: false,
-  importOrder: ["^@/(.*)$", "^@mold-link/(.*)$", "^[./]"],
+  importOrder: ["^@/(.*)$", "^@chindada/(.*)$", "^[./]"],
   importOrderSeparation: true,
   importOrderSortSpecifiers: true,
   tailwindConfig: "tailwind.config.cjs"

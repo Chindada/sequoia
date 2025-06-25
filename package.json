@@ -18,6 +18,9 @@
   "dependencies": {
     "@chindada/panther": "github:chindada/panther#v1.0",
     "@fontsource/roboto-mono": "^5.2.6",
+    "@fortawesome/fontawesome-svg-core": "^6.7.2",
+    "@fortawesome/free-solid-svg-icons": "^6.7.2",
+    "@fortawesome/vue-fontawesome": "^3.0.8",
     "@primeuix/themes": "^1.1.2",
     "@primevue/core": "^4.3.5",
     "@primevue/forms": "^4.3.5",

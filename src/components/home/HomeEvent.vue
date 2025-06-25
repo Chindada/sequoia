@@ -1,6 +1,4 @@
 <script setup lang="ts">
-import type { APIResponse } from "@chindada/panther/typescript/system/api";
-import { LoginEventList } from "@chindada/panther/typescript/system/event";
 import { DateTime } from "luxon";
 import { useToast } from "primevue/usetoast";
 import { onBeforeMount, ref } from "vue";
@@ -8,6 +6,9 @@ import { useI18n } from "vue-i18n";
 
 import { EventAPI } from "@/apis/event/event";
 import { ToastOpt } from "@/utils/toast";
+
+import type { APIResponse } from "@chindada/panther/typescript/system/api";
+import { LoginEventList } from "@chindada/panther/typescript/system/event";
 
 const { t } = useI18n();
 

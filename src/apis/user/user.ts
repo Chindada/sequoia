@@ -1,6 +1,7 @@
+import type { AxiosRequestConfig } from "axios";
+
 import { ChangePasswordRequest } from "@chindada/panther/typescript/system/api";
 import { BasicUser, User, UserList } from "@chindada/panther/typescript/system/user";
-import type { AxiosRequestConfig } from "axios";
 
 import httpClient from "../client";
 import path from "../path";

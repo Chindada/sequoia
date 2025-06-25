@@ -1,5 +1,6 @@
-import { Backup, BackupList } from "@chindada/panther/typescript/system/backup";
 import type { AxiosRequestConfig } from "axios";
+
+import { Backup, BackupList } from "@chindada/panther/typescript/system/backup";
 
 import httpClient from "../client";
 import path from "../path";

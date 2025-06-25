@@ -1,5 +1,6 @@
-import { UserRole } from "@chindada/panther/typescript/system/user";
 import { jwtDecode } from "jwt-decode";
+
+import { UserRole } from "@chindada/panther/typescript/system/user";
 
 interface JWToken {
   role: string;

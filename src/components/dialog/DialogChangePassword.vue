@@ -1,5 +1,4 @@
 <script setup lang="ts">
-import type { APIResponse } from "@chindada/panther/typescript/system/api";
 import { useToast } from "primevue/usetoast";
 import { ref, watch } from "vue";
 import { useI18n } from "vue-i18n";
@@ -7,6 +6,8 @@ import { useI18n } from "vue-i18n";
 import { ChangePassword } from "@/apis/user/user";
 import { GetUsername } from "@/utils/jwt";
 import { ToastOpt } from "@/utils/toast";
+
+import type { APIResponse } from "@chindada/panther/typescript/system/api";
 
 const { t } = useI18n();
 const toast = useToast();

@@ -94,7 +94,7 @@ function checkActiveRoute(item: Record<string, MenuItem>) {
       :target="item.target"
       @click="itemClick($event, item)"
     >
-      <i class="layout-menuitem-icon" :class="item.icon"></i>
+      <FontAwesomeIcon v-if="item.icon" class="layout-menuitem-icon" :icon="item.icon" />
       <span class="layout-menuitem-text">{{ item.label }}</span>
       <i v-if="item.items" class="pi pi-fw pi-angle-down layout-submenu-toggler"></i>
     </a>
@@ -105,7 +105,7 @@ function checkActiveRoute(item: Record<string, MenuItem>) {
       :to="item.to"
       @click="itemClick($event, item)"
     >
-      <i class="layout-menuitem-icon" :class="item.icon"></i>
+      <FontAwesomeIcon v-if="item.icon" class="layout-menuitem-icon" :icon="item.icon" />
       <span class="layout-menuitem-text">{{ item.label }}</span>
       <i v-if="item.items" class="pi pi-fw pi-angle-down layout-submenu-toggler"></i>
     </router-link>
