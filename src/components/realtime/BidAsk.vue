@@ -10,14 +10,21 @@ onMounted(() => {
   chartOptions.value = setChartOptions();
 });
 
+const color = computed(() => {
+  if (reverse.value) {
+    return "--p-red-500";
+  }
+  return "--p-green-500";
+});
+
 const chartData = computed(() => {
   const documentStyle = getComputedStyle(document.documentElement);
   return {
     labels: values.value[0],
     datasets: [
       {
-        backgroundColor: documentStyle.getPropertyValue("--p-cyan-500"),
-        borderColor: documentStyle.getPropertyValue("--p-cyan-500"),
+        backgroundColor: documentStyle.getPropertyValue(color.value),
+        borderColor: documentStyle.getPropertyValue(color.value),
         data: values.value[1]
       }
     ]
@@ -72,9 +79,7 @@ const setChartOptions = () => {
 </script>
 
 <template>
-  <div class="card">
-    <Chart :data="chartData" :options="chartOptions" type="bar" />
-  </div>
+  <Chart class="w-1/2" :data="chartData" :options="chartOptions" type="bar" />
 </template>
 
 <style lang="scss" scoped></style>
