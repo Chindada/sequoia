@@ -19,6 +19,11 @@ const model = ref<MenuItem[]>([
         label: t("account_management"),
         icon: "fas fa-users",
         to: "/system/account"
+      },
+      {
+        label: t("backup"),
+        icon: "fas fa-sliders",
+        to: "/system/backup"
       }
     ]
   }

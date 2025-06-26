@@ -1,5 +1,5 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faChartLine, faUsers } from "@fortawesome/free-solid-svg-icons";
+import { faChartLine, faSliders, faUsers } from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { definePreset } from "@primeuix/themes";
 import Aura from "@primeuix/themes/aura";
@@ -21,7 +21,7 @@ import App from "./App.vue";
 import useFirebase from "./firebase";
 import router from "./router";
 
-library.add(faUsers, faChartLine);
+library.add(faUsers, faChartLine, faSliders);
 
 const app = createApp(App);
 

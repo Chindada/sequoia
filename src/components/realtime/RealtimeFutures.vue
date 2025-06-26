@@ -15,13 +15,23 @@ const futuresArray = computed(() => {
     <div v-for="future in futuresArray" :key="future.code">
       <div class="card">
         <div class="mb-2 text-center text-2xl font-bold">{{ future.code }}</div>
-        <div v-if="future.tick" class="mb-2 flex flex-col text-center text-xl">
-          <div>{{ future.tick.close }}</div>
-          <div>{{ future.tick.price_chg }}</div>
+        <div class="mb-2 flex flex-col gap-2 text-center text-xl">
+          <div>{{ future.tick ? future.tick.close : "--" }}</div>
+          <div>{{ future.tick ? future.tick.price_chg : "--" }}</div>
         </div>
-        <div v-if="future.bidAsk" class="flex max-w-full flex-row justify-center">
-          <BidAsk :reverse="true" :values="[future.bidAsk.bid_price, future.bidAsk.bid_volume]" />
-          <BidAsk :values="[future.bidAsk.ask_price, future.bidAsk.ask_volume]" />
+        <div v-if="future.bidAsk">
+          <div class="flex max-w-full flex-row justify-center gap-6">
+            <div class="text-center text-lg font-bold">
+              {{ future.bidAsk.first_derived_bid_price }}
+            </div>
+            <div class="text-center text-lg font-bold">
+              {{ future.bidAsk.first_derived_ask_price }}
+            </div>
+          </div>
+          <div class="flex max-w-full flex-row justify-center">
+            <BidAsk :reverse="true" :values="[future.bidAsk.bid_price, future.bidAsk.bid_volume]" />
+            <BidAsk :values="[future.bidAsk.ask_price, future.bidAsk.ask_volume]" />
+          </div>
         </div>
       </div>
     </div>
