@@ -14,7 +14,9 @@ const futuresArray = computed(() => {
   <div class="grid grid-cols-2 gap-4">
     <div v-for="future in futuresArray" :key="future.code">
       <div class="card">
-        <div class="mb-2 text-center text-2xl font-bold">{{ future.code }}</div>
+        <div class="mb-2 text-center text-2xl font-bold">
+          {{ future.code }} ({{ future.delay || "--" }}&nbsp;ms)
+        </div>
         <div class="mb-2 flex flex-col gap-2 text-center text-xl">
           <div>{{ future.tick ? future.tick.close : "--" }}</div>
           <div>{{ future.tick ? future.tick.price_chg : "--" }}</div>

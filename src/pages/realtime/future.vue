@@ -59,6 +59,8 @@ const connectWS = async () => {
             tick: data.data.tick
           });
         } else {
+          futures.value.get(data.code)!.delay =
+            new Date().getTime() - Date.parse(data.data.tick.date_time);
           futures.value.get(data.code)!.tick = data.data.tick;
         }
         break;
@@ -94,6 +96,7 @@ const connectWS = async () => {
 <script lang="ts">
 export interface Future {
   code: string;
+  delay?: number;
   tick?: FutureTick;
   bidAsk?: FutureBidAsk;
 }
