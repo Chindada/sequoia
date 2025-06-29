@@ -1,5 +1,16 @@
 import { library } from "@fortawesome/fontawesome-svg-core";
-import { faChartLine, faSliders, faUsers } from "@fortawesome/free-solid-svg-icons";
+import {
+  faCartShopping,
+  faChartLine,
+  faCube,
+  faDollarSign,
+  faPlusMinus,
+  faRobot,
+  faSliders,
+  faTableList,
+  faUsers,
+  faWarehouse
+} from "@fortawesome/free-solid-svg-icons";
 import { FontAwesomeIcon } from "@fortawesome/vue-fontawesome";
 import { definePreset } from "@primeuix/themes";
 import Aura from "@primeuix/themes/aura";
@@ -13,15 +24,25 @@ import ToastService from "primevue/toastservice";
 import Tooltip from "primevue/tooltip";
 import { createApp } from "vue";
 
+import App from "@/App.vue";
 import "@/assets/css/styles.scss";
 import "@/assets/css/tailwind.css";
+import useFirebase from "@/firebase";
 import { i18n } from "@/i18n";
+import router from "@/router";
 
-import App from "./App.vue";
-import useFirebase from "./firebase";
-import router from "./router";
-
-library.add(faUsers, faChartLine, faSliders);
+library.add(
+  faUsers,
+  faChartLine,
+  faSliders,
+  faCartShopping,
+  faTableList,
+  faDollarSign,
+  faRobot,
+  faWarehouse,
+  faPlusMinus,
+  faCube
+);
 
 const app = createApp(App);
 

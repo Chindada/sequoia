@@ -74,8 +74,8 @@ const showCommit = ref(false);
           {{ upTime }}
         </div>
       </div>
-      <div class="card flex-col shadow-xs" @click="showCommit = !showCommit">
-        <div class="text-surface-500 mb-4 block font-medium select-none">
+      <div class="card flex-col shadow-xs select-none" @click="showCommit = !showCommit">
+        <div class="text-surface-500 mb-4 block font-medium">
           {{ t("system_version") }}
         </div>
         <div class="text-surface-900 flex justify-between text-lg font-medium">

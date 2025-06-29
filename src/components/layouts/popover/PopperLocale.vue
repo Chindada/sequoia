@@ -8,7 +8,7 @@ import { localeName } from "@/i18n";
 import { enLocale } from "@/locales/primevue/us";
 import { zhTWLocale } from "@/locales/primevue/zh_tw";
 
-const { locale, availableLocales } = useI18n({ useScope: "global" });
+const { t, locale, availableLocales } = useI18n({ useScope: "global" });
 const router = useRouter();
 const primevue = usePrimeVue();
 const refLocale = ref(locale);
@@ -39,6 +39,7 @@ const toggle = (event: MouseEvent) => {
 <template>
   <button class="layout-topbar-action" type="button" @click="toggle">
     <i class="pi pi-globe"></i>
+    <span>{{ t("locales") }}</span>
     <Popover ref="op">
       <div class="flex flex-col gap-4">
         <div>
