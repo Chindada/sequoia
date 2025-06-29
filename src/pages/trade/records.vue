@@ -341,7 +341,7 @@ const getOrderStatus = (status: OrderStatus) => {
           .concat('{totalRecords}', ' ')
           .concat(t('trade_record'))
       "
-      data-key="uid"
+      data-key="order_id"
       :export-filename="
         !startDate || !endDate
           ? 'Capitan_'.concat(t('trade_record'))
