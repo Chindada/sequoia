@@ -27,15 +27,14 @@ const GetUserId = () => {
   return 0;
 };
 
-const GetAvaliableTimeInMinute = (token: string | null) => {
+const GetTokenLifeTimeMinutes = () => {
+  const token = localStorage.getItem("token");
   if (!token || token === "") {
     return 0;
   }
 
   const decodedToken = jwtDecode<JWToken>(token);
-  const now = new Date();
-  const exp = new Date(decodedToken.exp * 1000);
-  return Math.floor((exp.getTime() - now.getTime()) / 60000);
+  return Math.floor((decodedToken.exp * 1000 - new Date().getTime()) / 1000 / 60);
 };
 
 const GetRole = (): UserRole => {
@@ -54,4 +53,4 @@ const GetRole = (): UserRole => {
   return UserRole.UNKNOWN;
 };
 
-export { GetAvaliableTimeInMinute, GetRole, GetUserId, GetUsername };
+export { GetRole, GetTokenLifeTimeMinutes, GetUserId, GetUsername };

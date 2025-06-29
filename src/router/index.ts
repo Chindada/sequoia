@@ -3,7 +3,7 @@ import { createRouter, createWebHistory } from "vue-router";
 import { handleHotUpdate, routes } from "vue-router/auto-routes";
 
 import { Refresh } from "@/apis/auth";
-import { GetAvaliableTimeInMinute } from "@/utils/jwt";
+import { GetTokenLifeTimeMinutes } from "@/utils/jwt";
 
 declare module "vue-router" {
   interface RouteMeta {
@@ -18,7 +18,7 @@ const router = createRouter({
 });
 
 router.beforeEach(async (to) => {
-  if (to.meta.auth && GetAvaliableTimeInMinute(localStorage.getItem("token")) < 15) {
+  if (to.meta.auth && GetTokenLifeTimeMinutes() < 60 * 23) {
     try {
       await Refresh();
     } catch {

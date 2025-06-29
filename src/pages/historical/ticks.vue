@@ -5,13 +5,13 @@ import { useI18n } from "vue-i18n";
 const { t } = useI18n();
 
 onMounted(async () => {
-  document.title = `TBT Capitan - ${t("place_order")}`;
+  document.title = `TBT Capitan - ${t("ticks")}${t("historical_data")}`;
 });
 </script>
 
 <template>
   <div class="card">
-    {{ t("place_order") }}
+    {{ t("ticks") }}
   </div>
 </template>
 

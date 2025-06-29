@@ -147,8 +147,8 @@ const maxUploadSize = 1024 * 1000000;
       </li>
     </ul>
   </div>
-  <div class="card">
-    <div v-if="backupList.list.length !== 0" class="text-surface-900 mt-12 mb-2 text-3xl font-bold">
+  <div v-if="backupList.list.length !== 0" class="card">
+    <div class="text-surface-900 mt-12 mb-2 text-3xl font-bold">
       {{ t("backup_list") }}
     </div>
     <ul class="m-0 list-none p-0">

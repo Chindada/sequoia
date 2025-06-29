@@ -26,12 +26,12 @@ const model = ref<MenuItem[]>([
       {
         label: t("position"),
         icon: "fas fa-warehouse",
-        to: "/trade/records"
+        to: "/trade/position"
       },
       {
         label: t("profit_loss"),
         icon: "fas fa-plus-minus",
-        to: "/trade/records"
+        to: "/trade/profit"
       },
       {
         label: t("trade_record"),
