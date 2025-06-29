@@ -103,7 +103,18 @@ export interface Future {
 </script>
 
 <template>
-  <RealtimeFutures v-model:futures="futures" />
+  <div>
+    <div v-if="!futures.size" class="itmes-center mt-96 flex flex-col justify-center">
+      <div class="mb-4 flex items-center justify-center text-2xl font-bold">
+        <span>{{ t("waiting") }}</span>
+      </div>
+      <ProgressBar mode="indeterminate" style="height: 6px"></ProgressBar>
+    </div>
+    <RealtimeFutures v-else v-model:futures="futures" />
+    <div v-if="!connected && !connecting" class="flex items-center justify-center">
+      <div class="pi pi-spin pi-spinner mt-40 text-gray-500" style="font-size: 5rem"></div>
+    </div>
+  </div>
 </template>
 
 <style lang="scss" scoped></style>

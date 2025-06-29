@@ -76,6 +76,16 @@ const model = ref<MenuItem[]>([
     ]
   },
   {
+    label: t("event"),
+    items: [
+      {
+        label: "Shioaji",
+        icon: "fas fa-envelope",
+        to: "/event/shioaji"
+      }
+    ]
+  },
+  {
     label: t("system"),
     items: [
       {

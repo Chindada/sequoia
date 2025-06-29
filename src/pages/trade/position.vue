@@ -11,7 +11,7 @@ onMounted(async () => {
 
 <template>
   <div class="card">
-    {{ t("position") }}
+    <h3>{{ t("position") }}</h3>
   </div>
 </template>
 

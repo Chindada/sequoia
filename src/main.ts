@@ -4,6 +4,7 @@ import {
   faChartLine,
   faCube,
   faDollarSign,
+  faEnvelope,
   faPlusMinus,
   faRobot,
   faSliders,
@@ -32,16 +33,17 @@ import { i18n } from "@/i18n";
 import router from "@/router";
 
 library.add(
-  faUsers,
-  faChartLine,
-  faSliders,
   faCartShopping,
-  faTableList,
+  faChartLine,
+  faCube,
   faDollarSign,
-  faRobot,
-  faWarehouse,
+  faEnvelope,
   faPlusMinus,
-  faCube
+  faRobot,
+  faSliders,
+  faTableList,
+  faUsers,
+  faWarehouse
 );
 
 const app = createApp(App);

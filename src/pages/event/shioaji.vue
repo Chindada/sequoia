@@ -1,13 +1,14 @@
 <script setup lang="ts">
 import { FilterMatchMode } from "@primevue/core/api";
+import { DateTime } from "luxon";
 import { useToast } from "primevue/usetoast";
 import { onBeforeMount, onMounted, ref } from "vue";
 import { useI18n } from "vue-i18n";
 
-import { BasicAPI } from "@/apis/basic/basic";
+import { EventAPI } from "@/apis/event/event";
 import { ToastOpt } from "@/utils/toast";
 
-import { OptionDetailList } from "@chindada/panther/typescript/basic/option";
+import { ShioajiEventList } from "@chindada/panther/typescript/stream/stream";
 import type { APIResponse } from "@chindada/panther/typescript/system/api";
 
 const { t } = useI18n();
@@ -18,19 +19,19 @@ const filters = ref({
   global: { value: "", matchMode: FilterMatchMode.CONTAINS }
 });
 
-const items = ref<OptionDetailList>(OptionDetailList.create());
-const selectedItems = ref<OptionDetailList>(OptionDetailList.create());
+const items = ref<ShioajiEventList>(ShioajiEventList.create());
+const selectedItems = ref<ShioajiEventList>(ShioajiEventList.create());
 
 onBeforeMount(async () => {
   await loadItems();
 });
 
 onMounted(async () => {
-  document.title = `TBT Capitan - ${t("option")}${t("basic_data")}`;
+  document.title = `TBT Capitan - Shioaji ${t("event")}`;
 });
 
 const loadItems = async () => {
-  await BasicAPI.GetAllOptionDetail()
+  await EventAPI.GetShioajiEvents()
     .then((res) => {
       items.value = res;
     })
@@ -53,7 +54,6 @@ const exportCSV = () => {
     <DataTable
       ref="dt"
       v-model:selection="selectedItems.list"
-      column-resize-mode="expand"
       :current-page-report-template="
         t('show')
           .concat(' ')
@@ -62,16 +62,17 @@ const exportCSV = () => {
           .concat('{last}', ' ')
           .concat(t('total'), ' ')
           .concat('{totalRecords}', ' ')
-          .concat(t('option'))
+          .concat(t('event'))
       "
-      data-key="code"
-      :export-filename="'Capitan_'.concat(t('option'))"
+      data-key="created_at"
+      :export-filename="'Capitan_'.concat('_Shioaji_', t('event'))"
       :filters="filters"
       paginator
       paginator-template="FirstPageLink PrevPageLink PageLinks NextPageLink LastPageLink CurrentPageReport RowsPerPageDropdown"
       removable-sort
       :rows="50"
       :rows-per-page-options="[25, 50, 100]"
+      :scrollable="true"
       selection-mode="multiple"
       striped-rows
       :value="items.list"
@@ -84,9 +85,7 @@ const exportCSV = () => {
 
       <template #header>
         <div class="flex flex-wrap items-center justify-between gap-2 pb-4">
-          <span class="m-0 text-3xl font-semibold">
-            {{ t("option") }}
-          </span>
+          <span class="m-0 text-3xl font-semibold"> Shioaji {{ t("event") }} </span>
           <div class="flex flex-row items-center justify-end gap-2">
             <IconField icon-position="left">
               <InputIcon>
@@ -120,25 +119,38 @@ const exportCSV = () => {
         </div>
       </template>
       <Column selection-mode="multiple"></Column>
-      <Column exportable field="code" :header="t('code')" sortable></Column>
-      <Column exportable field="name" :header="t('name')" sortable></Column>
-      <Column exportable field="delivery_date" :header="t('delivery_date')" sortable></Column>
-      <Column exportable field="reference" :header="t('reference')" sortable>
+      <Column
+        exportable
+        field="event_code"
+        :header="t('event_code')"
+        sortable
+        style="min-width: 8rem"
+      ></Column>
+      <Column
+        exportable
+        field="event"
+        :header="t('event')"
+        sortable
+        style="min-width: 20rem"
+      ></Column>
+      <Column exportable field="info" :header="t('info')" sortable></Column>
+      <Column
+        exportable
+        field="created_at"
+        :filter-field="
+          (rawData) =>
+            DateTime.fromSeconds(rawData.created_at.seconds).toFormat('yyyy-MM-dd HH:mm:ss')
+        "
+        :header="t('created_at')"
+        sortable
+        style="min-width: 18rem"
+      >
         <template #body="slotProps">
-          {{ slotProps.data.reference.toLocaleString() }}
-        </template>
-      </Column>
-      <Column exportable field="limit_up" :header="t('limit_up')" sortable>
-        <template #body="slotProps">
-          {{ slotProps.data.limit_up.toLocaleString() }}
-        </template>
-      </Column>
-      <Column exportable field="limit_down" :header="t('limit_down')" sortable>
-        <template #body="slotProps">
-          {{ slotProps.data.limit_down.toLocaleString() }}
-        </template>
-      </Column>
-      <Column exportable field="update_date" :header="t('update_date')" sortable></Column>
+          {{
+            DateTime.fromSeconds(slotProps.data.created_at.seconds).toFormat("yyyy-MM-dd HH:mm:ss")
+          }}
+        </template></Column
+      >
     </DataTable>
   </div>
 </template>

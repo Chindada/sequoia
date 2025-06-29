@@ -24,6 +24,7 @@ declare module 'vue-router/auto-routes' {
     '/basic/data/future': RouteRecordInfo<'/basic/data/future', '/basic/data/future', Record<never, never>, Record<never, never>>,
     '/basic/data/option': RouteRecordInfo<'/basic/data/option', '/basic/data/option', Record<never, never>, Record<never, never>>,
     '/basic/data/stock': RouteRecordInfo<'/basic/data/stock', '/basic/data/stock', Record<never, never>, Record<never, never>>,
+    '/event/shioaji': RouteRecordInfo<'/event/shioaji', '/event/shioaji', Record<never, never>, Record<never, never>>,
     '/historical/kbar': RouteRecordInfo<'/historical/kbar', '/historical/kbar', Record<never, never>, Record<never, never>>,
     '/historical/ticks': RouteRecordInfo<'/historical/ticks', '/historical/ticks', Record<never, never>, Record<never, never>>,
     '/login': RouteRecordInfo<'/login', '/login', Record<never, never>, Record<never, never>>,

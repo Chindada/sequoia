@@ -11,7 +11,7 @@ onMounted(async () => {
 
 <template>
   <div class="card">
-    {{ t("profit_loss") }}
+    <h3>{{ t("profit_loss") }}</h3>
   </div>
 </template>
 
